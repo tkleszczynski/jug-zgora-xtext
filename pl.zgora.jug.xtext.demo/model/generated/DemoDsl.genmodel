@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/pl.zgora.jug.xtext.demo/src-gen" editDirectory="/pl.zgora.jug.xtext.demo.edit/src"
+    editorDirectory="/pl.zgora.jug.xtext.demo.editor/src" modelPluginID="pl.zgora.jug.xtext.demo"
+    forceOverwrite="true" modelName="DemoDsl" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="6.0" copyrightFields="false" editPluginID="pl.zgora.jug.xtext.demo.edit"
+    editorPluginID="pl.zgora.jug.xtext.demo.editor" runtimeVersion="2.11">
+  <genPackages prefix="DemoDsl" basePackage="pl.zgora.jug.xtext" disposableProviderFactory="true"
+      fileExtensions="demo" ecorePackage="DemoDsl.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="DemoDsl.ecore#//LevelEnum">
+      <genEnumLiterals ecoreEnumLiteral="DemoDsl.ecore#//LevelEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="DemoDsl.ecore#//LevelEnum/OFF"/>
+      <genEnumLiterals ecoreEnumLiteral="DemoDsl.ecore#//LevelEnum/ERROR"/>
+      <genEnumLiterals ecoreEnumLiteral="DemoDsl.ecore#//LevelEnum/WARNING"/>
+      <genEnumLiterals ecoreEnumLiteral="DemoDsl.ecore#//LevelEnum/INFO"/>
+      <genEnumLiterals ecoreEnumLiteral="DemoDsl.ecore#//LevelEnum/DEBUG"/>
+      <genEnumLiterals ecoreEnumLiteral="DemoDsl.ecore#//LevelEnum/TRACE"/>
+    </genEnums>
+    <genClasses ecoreClass="DemoDsl.ecore#//LoggerConfig">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DemoDsl.ecore#//LoggerConfig/debug"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DemoDsl.ecore#//LoggerConfig/scan"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DemoDsl.ecore#//LoggerConfig/period"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DemoDsl.ecore#//LoggerConfig/appenders"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DemoDsl.ecore#//LoggerConfig/rootLogger"/>
+    </genClasses>
+    <genClasses ecoreClass="DemoDsl.ecore#//Appender">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DemoDsl.ecore#//Appender/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DemoDsl.ecore#//Appender/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DemoDsl.ecore#//Appender/pattern"/>
+    </genClasses>
+    <genClasses ecoreClass="DemoDsl.ecore#//Logger">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DemoDsl.ecore#//Logger/level"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DemoDsl.ecore#//Logger/appenders"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DemoDsl.ecore#//Logger/loggers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DemoDsl.ecore#//Logger/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

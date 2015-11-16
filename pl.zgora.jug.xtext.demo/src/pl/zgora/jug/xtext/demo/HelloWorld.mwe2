@@ -1,0 +1,11 @@
+module HelloWorld
+
+Workflow {
+	component = pl.zgora.jug.xtext.demo.SayHello {
+		message = "Hello World!"
+	}
+	
+	component = pl.zgora.jug.xtext.demo.SayHello {
+		message = "Hello JUG ZG!"
+	}
+}

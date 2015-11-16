@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: pl.zgora.jug.xtext.demo
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: pl.zgora.jug.xtext.demo; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext;bundle-version="2.8.0";visibility:=reexport,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types,
+ org.objectweb.asm;bundle-version="[5.0.0,6.0.0)";resolution:=optional
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: pl.zgora.jug.xtext,
+ pl.zgora.jug.xtext.services,
+ pl.zgora.jug.xtext.demoDsl,
+ pl.zgora.jug.xtext.demoDsl.impl,
+ pl.zgora.jug.xtext.demoDsl.util,
+ pl.zgora.jug.xtext.serializer,
+ pl.zgora.jug.xtext.parser.antlr,
+ pl.zgora.jug.xtext.parser.antlr.internal,
+ pl.zgora.jug.xtext.validation,
+ pl.zgora.jug.xtext.scoping,
+ pl.zgora.jug.xtext.generator,
+ pl.zgora.jug.xtext.formatting2

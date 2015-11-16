@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="demoDsl" nsURI="http://jug.zgora.pl/xtext/DemoDsl" nsPrefix="demoDsl">
+  <eClassifiers xsi:type="ecore:EClass" name="LoggerConfig">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="debug" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scan" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="appenders" upperBound="-1"
+        eType="#//Appender" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rootLogger" eType="#//Logger"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Appender">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="class" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Logger">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" eType="#//LevelEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="appenders" unique="false"
+        upperBound="-1" eType="#//Appender"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="loggers" upperBound="-1"
+        eType="#//Logger" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LevelEnum">
+    <eLiterals name="UNDEFINED" literal="UNDEFINED"/>
+    <eLiterals name="OFF" value="1" literal="off"/>
+    <eLiterals name="ERROR" value="2" literal="error"/>
+    <eLiterals name="WARNING" value="3" literal="warn"/>
+    <eLiterals name="INFO" value="4" literal="info"/>
+    <eLiterals name="DEBUG" value="5" literal="debug"/>
+    <eLiterals name="TRACE" value="6" literal="trace"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,32 @@
+grammar pl.zgora.jug.xtext.DemoDsl with org.eclipse.xtext.common.Terminals
+
+generate demoDsl "http://jug.zgora.pl/xtext/DemoDsl"
+
+LoggerConfig:
+	(debug?='debug'? & (scan?='scan' ('period' period=STRING)?)?)
+	appenders+=Appender+
+	rootLogger=RootLogger;
+
+Appender:
+	'appender' name=ID class=FQN pattern=STRING?;
+
+RootLogger returns Logger:
+	'root' level=Level 'append-to' appenders+=[Appender|ID]+
+	(LBRACE loggers+=Logger* RBRACE)?;
+
+Logger:
+	'logger' name=FQN level=Level? ('append-to' appenders+=[Appender]+)?
+	(LBRACE loggers+=Logger* RBRACE)?;
+
+enum LevelEnum:
+	UNDEFINED | OFF="off" | ERROR="error" | WARNING="warn" | INFO="info" | DEBUG="debug" | TRACE="trace";
+
+enum Level returns LevelEnum:
+	OFF="off" | ERROR="error" | WARNING="warn" | INFO="info" | DEBUG="debug" | TRACE="trace";
+
+FQN:
+	ID ('.' ID)*;
+
+terminal LBRACE: '{';
+
+terminal RBRACE: '}';

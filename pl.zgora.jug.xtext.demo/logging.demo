@@ -1,0 +1,11 @@
+debug scan period "3 seconds"
+
+appender SYSOUT ch.qos.logback.core.ConsoleAppender "%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n"
+
+appender SAMPLE pl.zgora.jug.xtext.demo.Appender
+
+root error append-to SYSOUT {
+	logger pl.zgora.jug.xtext {
+		logger demo.Main debug
+	}
+}

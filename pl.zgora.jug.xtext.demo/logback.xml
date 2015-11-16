@@ -1,0 +1,18 @@
+<configuration debug="true" scan="true" scanPeriod="3 seconds">
+	
+	<appender name="SYSOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>
+				%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="SAMPLE" class="pl.zgora.jug.xtext.demo.Appender" />
+	
+	<logger name="pl.zgora.jug.xtext"/>
+	<logger name="pl.zgora.jug.xtext.demo.Main" level="debug"/>
+	
+	<root level="error">
+		<appender-ref ref="SYSOUT" />
+	</root>
+</configuration>
